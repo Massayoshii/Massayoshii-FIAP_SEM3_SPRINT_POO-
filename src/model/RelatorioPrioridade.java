@@ -1,23 +1,81 @@
 package model;
 
+import java.time.LocalDateTime;
+
 public class RelatorioPrioridade {
-    public void gerarRelatorio(TrechoRodovia [] trechos){
-        System.out.println("\n=== RELATORIO DE PRIORIDADE === ");
-        for (TrechoRodovia trecho : trechos){
-            System.out.println(trecho);
 
-            if(trecho.getNivelVegetacaoCm() >= 25){
-                System.out.println("\nPRIORIDADE ALTA -> Roçada mecanizada");
+    private Long id;
+    private int quantidadePrioridadeAlta;
+    private int quantidadePrioridadeMedia;
+    private int quantidadeSemIntervencao;
+    private String resumo;
+    private LocalDateTime dataGeracao;
 
-                IntervencaoOperacional rocada = new RocadaMecanizada();
-                rocada.executarServico();
-            }else if (trecho.getNivelVegetacaoCm() >= 12){
-                System.out.println("\nPRIORIDADE MEDIA -> Pulverizacao");
-                IntervencaoOperacional pulverizacao = new Pulverizacao();
-                pulverizacao.executarServico();
-            }else {
-                System.out.println("\nSem necessidade de intervencao");
-            }
-        }
+    public RelatorioPrioridade(
+            int quantidadePrioridadeAlta,
+            int quantidadePrioridadeMedia,
+            int quantidadeSemIntervencao,
+            String resumo,
+            LocalDateTime dataGeracao) {
+
+        this.quantidadePrioridadeAlta = quantidadePrioridadeAlta;
+        this.quantidadePrioridadeMedia = quantidadePrioridadeMedia;
+        this.quantidadeSemIntervencao = quantidadeSemIntervencao;
+        this.resumo = resumo;
+        this.dataGeracao = dataGeracao;
+    }
+
+    public RelatorioPrioridade(
+            Long id,
+            int quantidadePrioridadeAlta,
+            int quantidadePrioridadeMedia,
+            int quantidadeSemIntervencao,
+            String resumo,
+            LocalDateTime dataGeracao) {
+
+        this.id = id;
+        this.quantidadePrioridadeAlta = quantidadePrioridadeAlta;
+        this.quantidadePrioridadeMedia = quantidadePrioridadeMedia;
+        this.quantidadeSemIntervencao = quantidadeSemIntervencao;
+        this.resumo = resumo;
+        this.dataGeracao = dataGeracao;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getQuantidadePrioridadeAlta() {
+        return quantidadePrioridadeAlta;
+    }
+
+    public int getQuantidadePrioridadeMedia() {
+        return quantidadePrioridadeMedia;
+    }
+
+    public int getQuantidadeSemIntervencao() {
+        return quantidadeSemIntervencao;
+    }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public LocalDateTime getDataGeracao() {
+        return dataGeracao;
+    }
+
+    @Override
+    public String toString() {
+        return "Relatório ID: " + id
+                + " | Alta: " + quantidadePrioridadeAlta
+                + " | Média: " + quantidadePrioridadeMedia
+                + " | Sem intervenção: " + quantidadeSemIntervencao
+                + " | Data: " + dataGeracao
+                + " | Resumo: " + resumo;
     }
 }

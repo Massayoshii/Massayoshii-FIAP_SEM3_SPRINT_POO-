@@ -7,12 +7,28 @@ public class TrechoRodovia implements MonitoravelViaIoT {
     private double nivelVegetacaoCm;
     private String tipoClima;
 
-    public TrechoRodovia(double quilometroInicial, double quilometroFinal, double nivelVegetacaoCm,String tipoClima) {
+    public TrechoRodovia(double quilometroInicial, double quilometroFinal, double nivelVegetacaoCm, String tipoClima) {
+        this.quilometroInicial = quilometroInicial;
+        this.quilometroFinal = quilometroFinal;
+        this.nivelVegetacaoCm = nivelVegetacaoCm;
+        this.tipoClima = tipoClima;
+    }
+
+    public TrechoRodovia(Long id , double quilometroInicial, double quilometroFinal, double nivelVegetacaoCm, String tipoClima) {
+        this.id = id;
         this.setQuilometroInicial(quilometroInicial);
         this.setQuilometroFinal(quilometroFinal);
         this.setNivelVegetacaoCm(nivelVegetacaoCm);
         this.setTipoClima(tipoClima);
         System.out.println("\nTrecho rodovia: Km inicial:"+ this.quilometroInicial + "km | Quilometro final:"+ this.quilometroFinal + "km | Nivel de vegetacao:"+ this.nivelVegetacaoCm + "cm");
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public double getQuilometroInicial() {
