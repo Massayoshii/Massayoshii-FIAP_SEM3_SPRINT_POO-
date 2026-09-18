@@ -16,11 +16,6 @@ public class Main {
         ConexaoBD conexao = ConexaoBD.getInstancia();
 
         try {
-
-            // ==========================================
-            // 1. TESTE DE CONEXAO
-            // ==========================================
-
             System.out.println("==========================================");
             System.out.println("        TESTE DE CONEXAO COM ORACLE");
             System.out.println("==========================================");
@@ -30,19 +25,9 @@ public class Main {
             System.out.println("Conexao realizada com sucesso!");
             System.out.println("Banco conectado: " + conexao.estaConectado());
 
-
-            // ==========================================
-            // 2. INSTANCIANDO OS DAOs
-            // ==========================================
-
             TrechoRodoviaDAO trechoDAO = new TrechoRodoviaDAO();
             RelatorioPrioridadeDAO relatorioDAO =
                     new RelatorioPrioridadeDAO();
-
-
-            // ==========================================
-            // 3. INSERT DE TRECHOS
-            // ==========================================
 
             System.out.println("\n==========================================");
             System.out.println("             INSERINDO TRECHOS");
@@ -73,11 +58,6 @@ public class Main {
                     "Trecho 3 inserido. ID: " + idTrecho3
             );
 
-
-            // ==========================================
-            // 4. LISTAR TRECHOS
-            // ==========================================
-
             System.out.println("\n==========================================");
             System.out.println("          TRECHOS CADASTRADOS");
             System.out.println("==========================================");
@@ -93,11 +73,6 @@ public class Main {
                                 + trecho
                 );
             }
-
-
-            // ==========================================
-            // 5. BUSCAR TRECHO POR ID
-            // ==========================================
 
             System.out.println("\n==========================================");
             System.out.println("          BUSCANDO TRECHO POR ID");
@@ -116,11 +91,6 @@ public class Main {
                 System.out.println("Trecho nao encontrado.");
             }
 
-
-            // ==========================================
-            // 6. UPDATE
-            // ==========================================
-
             System.out.println("\n==========================================");
             System.out.println("             ATUALIZANDO TRECHO");
             System.out.println("==========================================");
@@ -134,11 +104,6 @@ public class Main {
                     "Trecho atualizado? " + atualizado
             );
 
-
-            // ==========================================
-            // 7. BUSCAR NOVAMENTE APOS UPDATE
-            // ==========================================
-
             System.out.println("\n==========================================");
             System.out.println("       TRECHO APOS ATUALIZACAO");
             System.out.println("==========================================");
@@ -148,23 +113,12 @@ public class Main {
 
             System.out.println(trechoAtualizado);
 
-
-            // ==========================================
-            // 8. GERAR RELATORIO
-            // ==========================================
-
             System.out.println("\n==========================================");
             System.out.println("             GERANDO RELATORIO");
             System.out.println("==========================================");
 
             GeradorRelatorio gerador =
                     new GeradorRelatorio();
-
-            /*
-             * IMPORTANTE:
-             * usamos trechoAtualizado no lugar de trecho1
-             * para o relatorio considerar o valor atualizado.
-             */
 
             TrechoRodovia[] trechosParaRelatorio = {
                     trechoAtualizado,
@@ -177,11 +131,6 @@ public class Main {
                             trechosParaRelatorio
                     );
 
-
-            // ==========================================
-            // 9. SALVAR RELATORIO NO BANCO
-            // ==========================================
-
             System.out.println("\n==========================================");
             System.out.println("          SALVANDO RELATORIO");
             System.out.println("==========================================");
@@ -193,11 +142,6 @@ public class Main {
                     "Relatorio salvo com ID: "
                             + idRelatorio
             );
-
-
-            // ==========================================
-            // 10. BUSCAR RELATORIO POR ID
-            // ==========================================
 
             System.out.println("\n==========================================");
             System.out.println("          BUSCANDO RELATORIO");
@@ -217,11 +161,6 @@ public class Main {
                 );
             }
 
-
-            // ==========================================
-            // 11. HISTORICO DE RELATORIOS
-            // ==========================================
-
             System.out.println("\n==========================================");
             System.out.println("       HISTORICO DE RELATORIOS");
             System.out.println("==========================================");
@@ -234,11 +173,6 @@ public class Main {
                 System.out.println(item);
             }
 
-
-            // ==========================================
-            // 12. DELETE
-            // ==========================================
-
             System.out.println("\n==========================================");
             System.out.println("             DELETANDO TRECHO");
             System.out.println("==========================================");
@@ -249,11 +183,6 @@ public class Main {
             System.out.println(
                     "Trecho deletado? " + deletado
             );
-
-
-            // ==========================================
-            // 13. CONFIRMAR DELETE
-            // ==========================================
 
             TrechoRodovia trechoDeletado =
                     trechoDAO.buscarPorId(idTrecho3);
@@ -270,11 +199,6 @@ public class Main {
                         "Trecho ainda existe."
                 );
             }
-
-
-            // ==========================================
-            // FINAL
-            // ==========================================
 
             System.out.println("\n==========================================");
             System.out.println("        TESTE FINALIZADO COM SUCESSO");
